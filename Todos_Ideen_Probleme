@@ -1,0 +1,20 @@
+
+
+
+PROBLEME:
+
+IDEEN
+
+TODOS
+
+- Ich muss irgendwie den korrespodierenden Funktionsnamen im Decompilierten programm finden,
+    zum Funktionsnamen im Original Programm
+
+- Das aufrufen der C methoden mit cytpes funktioniert, siehe TEST.py
+    - das bedeutet, dass ich das C Programm so schreiben muss, das ich jeden Output (return) speichern kann und mit
+    dem Output des Decompilierten Programms vergleichen kann.
+
+- Bin nun an einem Punkt angekommen wo ich mal die Tools ausprobieren muss.
+
+
+GUTE SACHEN:
