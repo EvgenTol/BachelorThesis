@@ -15,10 +15,10 @@ Sprache es sich handelt (c oder java) und welches Programm das original Programm
 Danch wird die zugehörige Analyse Klasse ausgerufen, welche dann das zugehörige Programm analysiert.
 '''
 
-import os   # needet for checking if the File exists
-import sys  # needet for exiting
-import AnalyseClassC    # Wird benötigt, falls die Programme in C geschrieben sind
-import AnalyseClassJava # Wird benötigt, falls die Programme in java geschrieben sind
+import os   # Zum überprüfen ob der Pfad existiert
+import sys  # Zum verlassen des programms und importieren der UnterOrdner benötigt
+import AnalyseClassC    # Wird benötigt, falls die Programme in C geschrieben sind (MUSS UMGESCHRIBEN WERDEN)
+from AnalyseClassJava import ChooseAnaylsisClass # wird aufgerufen, wenn die Codes in java geschriben sind
 
 PATH_TO_ORIGINAL_FILE = ""  # Stores the path to the Original C File
 PATH_TO_DECOMPILED_FILE = ""  # Stores the path to the decompiled C File
@@ -31,6 +31,7 @@ def main():
     print("Welcome")
     print("------------")
     print("Please enter the path to the Original Sourcecode, if it's in the same directory as this Script, just enter the name of it")
+    global PATH_TO_ORIGINAL_FILE
     PATH_TO_ORIGINAL_FILE = input("Please enter -> ")
     if os.path.exists(PATH_TO_ORIGINAL_FILE):
         print("File Found!")
@@ -39,6 +40,7 @@ def main():
         PATH_TO_ORIGINAL_FILE = input(" -> ")
 
     print("Now please enter the Path to the decompiled Sourcecode")
+    global PATH_TO_DECOMPILED_FILE
     PATH_TO_DECOMPILED_FILE = input("Please enter -> ")
     if os.path.exists(PATH_TO_DECOMPILED_FILE):
         print("File Found!")
@@ -61,9 +63,11 @@ def main():
     if MODE.lower() == "c": #Abhängig vom Modus, die jeweilige Klasse ausführen
         AnalyseClassC.Analyse(PATH_TO_ORIGINAL_FILE, PATH_TO_DECOMPILED_FILE)
     elif MODE.lower() == "java":
-        AnalyseClassJava.ChooseAnaylsisClass()
+        ChooseAnaylsisClass(CLASS_CASE, PATH_TO_ORIGINAL_FILE, PATH_TO_DECOMPILED_FILE)
 
 
 
 if __name__ == "__main__":
+    sys.path.append("AnalysisForJavaClasses")
+    sys.path.append("JavaCode")
     main()

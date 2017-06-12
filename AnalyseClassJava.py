@@ -9,11 +9,17 @@ Analyse Klassen: Fibo, Casting und mehr (folgt)
 '''
 
 import start
-import AnalysisForJavaClasses   # Package wo alle Java Analyse Klassen sind
+from AnalysisForJavaClasses import JavaFiboAnalyse   # Package wo alle Java Analyse Klassen sind
 
 
-def ChooseAnaylsisClass(): # TODO Parameter hinzufügen
-    if start.CLASS_CASE.lower() == "fibo":
-        AnalysisForJavaClasses.JavaFiboAnalyse()   # Wenn der User Fibo als CLASS_CASE angibt, so wird die JavaFiboAnalyse Klasse ausgerufen
-    elif start.CLASS_CASE.lower() == "casting":
-        AnalysisForJavaClasses.JavaCastingAnalyse()
+
+def ChooseAnaylsisClass(case, oripath, decpath): # TODO Parameter hinzufügen
+    if case == "fibo":
+        JavaFiboAnalyse.JavaFiboAnalyse(oripath, decpath)   # Wenn der User Fibo als CLASS_CASE angibt, so wird die JavaFiboAnalyse Klasse aufgerufen
+    #elif start.CLASS_CASE.lower() == "casting":
+        #AnalysisForJavaClasses.JavaCastingAnalyse() # Wenn der User Casting als CLASS_CASE angibt, so wird die JavaCastingAnalyse Klasse aufgerufen
+
+
+
+
+# TODO Ggf. hier schon die java Klassen kompilieren oder so, dasmit sie nutzbar werden
