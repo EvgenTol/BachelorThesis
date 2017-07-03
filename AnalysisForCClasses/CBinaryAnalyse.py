@@ -27,10 +27,10 @@ def getBinaryName(path):
 
 def CompileToBinary(path):
     CFileName = getFileName(path)
-    os.system("gcc -o " + CFileName)
+    os.system("gcc -o " + CFileName) #TODO Name des Binarys noch hinzufügen
     pass
 
 
 
 def CompareBinarys(file1, file2):
-    pass
+    pass #TODO Punktesystem ausdenken, keine Unterschiede = Volle Punktzahl
