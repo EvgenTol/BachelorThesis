@@ -16,13 +16,13 @@ Vorgehen:
 import os   #Zum Compilieren der Programme, zu Binarys
 import subprocess # Zum Vergleich der beiden Binarys
 
-int Punkte = 0 # Die Punktzhal repräsentiert, wie ähnlich sich beide Binarys sind, eine 9 ist die höchstpunktzahl, eine 0 bedeutet, dass beide Programme komplett verschieden sind
+Punkte = 0 # Die Punktzhal repräsentiert, wie ähnlich sich beide Binarys sind, eine 9 ist die höchstpunktzahl, eine 0 bedeutet, dass beide Programme komplett verschieden sind
 
 def CBinaryAnalye(pathOri, pathDec):
     print("--- Compiling the C Files to Binary ---")
-    CompileToBinary(pathOri)    # Compile the Original C File to a Binary
-    CompileToBinary(pathDec)    # Compile the Decompiled C File to a Binary
-    CompareBinarys(pathDec)     # Compare the Binarys of both C Files
+    OriBinary = CompileToBinary(pathOri)    # Compile the Original C File to a Binary
+    DecBinary = CompileToBinary(pathDec)    # Compile the Decompiled C File to a Binary
+    CompareBinarys(OriBinary, DecBinary)     # Compare the Binarys of both C Files
     print("--- Compilation succesfull ---")
 
 
@@ -30,19 +30,24 @@ def getFileName(path):
     Filepath = os.path.abspath(path)
     return Filepath
 
+
+'''
+Kann raus, oder? Funktionalität ist ja schon in der CompileToBinary Funktion
 def getBinaryName(path):
     OldName = getFileName(path)
     # remove .x extenshion and add a prefix
+'''
 
 def CompileToBinary(path):
-    CFileName = getFileName(path)
-    NAMEOFBINARY = "" # temp
-    os.system("gcc -o " + NAMEOFBINARY + CFileName) #TODO Name des Binarys(endung .bin nicht vergessen) noch hinzufügen
-    pass
+    CFileName = getFileName(path)   # Entferne den Pfad der Datei, zurücl bleibt nur der Name inkl. Endung
+    NameOfBinary =  os.path.splitext(CFileName)[0]  # Entferne die Endung der Datei, also das .c
+    NameOfBinary = NameOfBinary + ".bin"    # füge die Binary Endung hinzu
+    os.system("gcc -o " + NameOfBinary + " " + CFileName) # Compiliert das C Programm zu einer Binary
+    return NameOfBinary
 
 
 
-def CompareBinarys(file1, file2):   # TODO nur den Dateinamen übergeben (beides sollten .bin Dateien sein)
+def CompareBinarys(file1, file2):
     output = subprocess.check_output("diff " + file1 + " " + file2, shell=True)
     if output is None:
         Punkte = 9
