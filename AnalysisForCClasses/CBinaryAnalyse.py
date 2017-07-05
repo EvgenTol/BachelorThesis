@@ -49,8 +49,10 @@ def CompileToBinary(path):
 
 def CompareBinarys(file1, file2):
     output = subprocess.check_output("diff " + file1 + " " + file2, shell=True)
-    if output is None:
-        Punkte = 9
+    if output is None:  # Wenn es keinen Output gibt, dann sind die binarys identisch TODO (also kein Output = None?)
+        Punkte = 5
         # generie die Ausgabedatei und verlasse das Programm
     else:   # Hier alle möglichen Fällen abklappern und die Punktzahl berechnen
         pass
+    # Zum Vergleich kann ich cmp nutzen, es gibt mir alle Unterschiede, zwischen den beiden Binarys, aus. Danch berechne ich einen Quotienten (größe der Date / Unterschiede) und lese auf Basis desQuotienten
+    # Die Zahl ab (z.b Q = 0 => 5 Pkt, Q = 5 => 4 Pkt ...)
