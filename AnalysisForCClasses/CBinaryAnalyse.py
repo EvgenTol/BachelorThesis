@@ -11,6 +11,7 @@ Vorgehen:
 # TODO 1) diese Klasse muss getestet werden
 # TODO 2) Punktesystem ausdenken (0-9 oder doch lieber 0-5?)
 # TODO 3) Zum Thema Binarys informieren, wie sind die aufgebaut und wie Unterschieden die sich?
+# TODO 4) JOJODIFF anschauen
 
 
 import os   #Zum Compilieren der Programme, zu Binarys
