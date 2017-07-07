@@ -1,6 +1,11 @@
 '''
 Diese Klasse berechnet die Halstead Kennzhalen, des übergebenen Programmes
-
+Vorgehen:
+1)Umwandeln der .c oder .class Datei in eine .txt Datei
+2) Einlesen der .txt Datei
+3) Scannen der .txt Datei nach den relevanten Keywords
+4) Zusammenfassung der Ergebnisse
+5) Ausgabe der Ergebnisse in einer .txt Datei
 '''
 import math
 
@@ -22,7 +27,7 @@ def HalsteadLength(n1, n2):
 def HalsteadVolumen(N, n):
     vol = N * math.log(n, 2)
     return vol
-    
+
 # Der Aufwand beträgt, Schwierigkeit(Difficulty) * Halstead-Volumen
 def Effort(diffi, volu):
     return diffi * volu
@@ -36,6 +41,22 @@ def Difficulty(n1, n2, N2):
 def TimeReqToProgramm(effort):
     return (effort/18)
 
+# Das C Programm in bereitschaft bringen
+def setUp(file):
+    pass
 
+# Diese Methode soll, die Anzahl der unterschiedlichen verwendeten Operatoren ermittlen
+def GetSumOFDiffOperatoren(file):
+    pass
 
+# Diese Methode soll, die Anzahl der unterschiedlichen verwendeten Operanden ermittlen
+def GetSumOfDiffOperanden(file):
+    pass
 
+# Diese Methode soll, die Anzahl der insgesamt verwendeten Operatoren ermittlen
+def GetSumOfSameOperatoren(file):
+    pass
+
+# Diese Methode soll, die Anzahl der insgesamt verwendeten Operanden ermitteln
+def GetSumOfSmageOperanden(file):
+    pass
