@@ -3,7 +3,7 @@ Diese Klasse berechnet die Halstead Kennzhalen, des übergebenen Programmes
 Vorgehen:
 1)Umwandeln der .c oder .class Datei in eine .txt Datei
 2) Einlesen der .txt Datei
-3) Scannen der .txt Datei nach den relevanten Keywords
+3) Scannen der .txt Datei nach den relevanten Keywords (mit regex?)
 4) Zusammenfassung der Ergebnisse
 5) Ausgabe der Ergebnisse in einer .txt Datei
 '''
@@ -42,6 +42,7 @@ def TimeReqToProgramm(effort):
     return (effort/18)
 
 # Das C Programm in bereitschaft bringen
+# .c -> .txt
 def setUp(file):
     pass
 
