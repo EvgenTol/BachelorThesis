@@ -6,6 +6,8 @@ Vorgehen:
 3) Scannen der .txt Datei nach den relevanten Keywords (mit regex?)
 4) Zusammenfassung der Ergebnisse
 5) Ausgabe der Ergebnisse in einer .txt Datei
+
+Diese Metric kann ich mit anderen Tools automatisieren, ggf. die Too,s nutzen und auf die automatisierung verzichten
 '''
 import math
 
